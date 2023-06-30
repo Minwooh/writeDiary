@@ -58,11 +58,22 @@ window.onload = function () {
   whiteBoxes.forEach(function (whiteBox) {
     whiteBox.addEventListener("click", onWhiteBoxClick);
   });
+
+  function onWhiteBoxClick() {
+    console.log("whitebox");
+
+    const whiteBoxId = this.dataset.id;
+    //const whiteBoxDate = this.dataset.date;
+    const whiteBoxDate = this.querySelector(".totalDate").textContent;
+    //const whiteBoxContent = this.dataset.content;
+    const whiteBoxContent = this.querySelector(".cont").textContent;
+
+    window.location.href =
+      "/pages/check.html?id=" +
+      whiteBoxId +
+      "&date=" +
+      encodeURIComponent(whiteBoxDate) +
+      "&content=" +
+      encodeURIComponent(whiteBoxContent);
+  }
 };
-
-function onWhiteBoxClick() {
-  console.log("whitebox");
-
-  const whiteBoxId = this.dataset.id;
-  window.location.href = "/pages/check.html?id=" + whiteBoxId;
-}

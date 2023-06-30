@@ -37,12 +37,12 @@
       height: 50px;
       flex-direction: column;
 
-      margin-top: 15px;
-      margin-left: 70px;
+      margin-top: 25px;
+      margin-left: 55px;
 
       color: #4c7343;
       text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
-      font-size: 20px;
+      font-size: 22px;
       font-family: Noto Sans;
       font-style: normal;
       font-weight: 700;
@@ -75,7 +75,7 @@
       line-height: normal;
     }
 
-    #coment {
+    #comentNum {
       display: flex;
       width: 135px;
       height: 22px;
@@ -87,6 +87,17 @@
       font-size: 16px;
       font-family: Inter;
       font-weight: 600;
+    }
+    #coment {
+      width: 318px;
+      height: 79px;
+
+      margin-left: 32px;
+
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
     }
 
     .coment-img {
@@ -224,7 +235,17 @@
         </div>
       </div>
 
-      <p id="coment">댓글(2)</p>
+      <div id="comment-box">
+        <p id="comentNum">댓글(2)</p>
+        <input type="text" id="coment" placeholder="댓글을 입력해주세요" />
+        <div class="comment-img">
+          <img
+            src="/images/Send Button.png"
+            id="send-btn"
+            style="width: 25px; height: 25px"
+          />
+        </div>
+      </div>
 
       <div id="coment1">
         <img

@@ -1,18 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
-  const memoId = urlParams.get("whiteBoxId");
+  const memoId = urlParams.get("id");
+  const memoDate = urlParams.get("date");
+  const memoContent = urlParams.get("content");
 
-  const memos = JSON.parse(localStorage.getItem("memos"));
-
-  if (!memos || memos.length === 0) {
-    console.log("No memos found");
-    return;
-  }
-
-  const memo = memos.find((memo) => memo.id === memoId);
-
-  if (memo) {
-    document.getElementById("date").innerHTML = memo.date;
-    document.getElementById("content").innerHTML = memo.content;
-  }
+  document.getElementById("date").innerHTML = memoDate;
+  document.getElementById("content").innerHTML = memoContent;
 });

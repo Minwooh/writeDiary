@@ -27,6 +27,9 @@ function saveContent() {
 
   localStorage.setItem("memos", JSON.stringify(memos));
   localStorage.setItem("id", JSON.stringify(++id));
+  //
+  localStorage.setItem("dateVal", JSON.stringify(date));
+  localStorage.setItem("contVal", JSON.stringify(content));
 
   window.location.href = `/pages/main.html?memo=${encodeURIComponent(
     JSON.stringify(newMemo)

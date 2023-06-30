@@ -5,6 +5,7 @@ let memos = JSON.parse(localStorage.getItem("memo"));
 memos = memos ?? [];
 
 function setEditBtn(e) {
+  console.log("edit");
   const memoId = e.target.parentNode.dataset.id;
 
   const memo = memos.find((a) => a.id == memoId);
@@ -19,10 +20,8 @@ function setEditBtn(e) {
 
     // 자른 메모 배열 로컬스토리지에 저장
     localStorage.setItem("memos", JSON.stringify(memos));
-
-    // 화면에 보여주기
-    setMemo();
   }
+  window.location.href = "main.html";
 }
 
 editBtn.addEventListener("click", setEditBtn);
