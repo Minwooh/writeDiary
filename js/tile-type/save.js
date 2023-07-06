@@ -1,7 +1,6 @@
-//js 코드
+//js 코드-- 저장하는 코드
 const saveBtn = document.getElementById("save");
 const all = document.getElementById("white");
-//수정 함
 
 let memos = JSON.parse(localStorage.getItem("memos"));
 memos = memos ?? [];
@@ -21,19 +20,32 @@ function saveContent() {
   let id = JSON.parse(localStorage.getItem("id"));
   id = id ?? 0;
 
+  //댓글 배열 추가하기
+  let comentarr = [];
+
   newMemo.id = id;
   newMemo.date = memoDate;
   newMemo.content = memoContent;
+  //댓글
+  newMemo.comentarr = comentarr;
 
   memos.push(newMemo);
 
   localStorage.setItem("memos", JSON.stringify(memos));
   localStorage.setItem("id", JSON.stringify(++id));
-  //
-  localStorage.setItem("dateVal", JSON.stringify(date));
-  localStorage.setItem("contVal", JSON.stringify(content));
+  localStorage.setItem("comentarr", JSON.stringify(comentarr));
 
-  window.location.href = `/mungTeam/minwoo/pages/tile-pages/main.html?memo=${encodeURIComponent(
+  window.location.href = `/pages/tile-pages/main.html?memo=${encodeURIComponent(
     JSON.stringify(newMemo)
   )}`;
 }
+
+var input = document.getElementById("content");
+var logo = document.getElementById("change-img");
+
+input.addEventListener("input", function () {
+  var text = input.value;
+  //console.log("in!");
+
+  logo.src = "/images/ic_round-image.png";
+});

@@ -27,6 +27,13 @@ window.onload = function () {
   }
 
   for (let i = memos.length - 1; i >= 0; i--) {
+    let commentCount = 0;
+    const memo = memos[i];
+    const commentArr = memo.comentarr;
+
+    commentCount += commentArr.length;
+    //console.log(commentCount);
+
     let whiteBox = document.createElement("div");
     whiteBox.classList.add("white-box");
 
@@ -44,6 +51,10 @@ window.onload = function () {
     date.textContent = memos[i].date;
     date.classList.add("totalDate");
 
+    let num = document.createElement("p");
+    num.textContent = `(${commentCount.toString()})`;
+    num.classList.add("comment-counter");
+
     // div : line
     let line = document.createElement("div");
     line.classList.add("line");
@@ -55,7 +66,7 @@ window.onload = function () {
 
     content.style.display = "none";
 
-    box.append(boxId, date, line, content);
+    box.append(boxId, date, num, line, content);
     whiteBox.append(box);
     elements.append(whiteBox);
   }
@@ -71,7 +82,7 @@ window.onload = function () {
     const whiteBoxContent = this.querySelector(".cont").textContent;
 
     window.location.href =
-      "/mungTeam/minwoo/pages/list-pages/check-list.html?id=" +
+      "/pages/list-pages/check-list.html?id=" +
       encodeURIComponent(whiteBoxId) +
       "&date=" +
       encodeURIComponent(whiteBoxDate) +
